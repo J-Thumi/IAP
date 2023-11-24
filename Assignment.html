@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Tasks</title>
-        
-    </head>
-    <body>
-        <h1>Tasks</h1>
-        <ul id="tasks"></ul>
-        <form action="">
-            <input id="task" placeholder="New Task" type="text">
-            <input id="submit" type="submit">
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-    const submit = document.getElementById("submit");
-    const newTask = document.getElementById("task");
-  
-    // disable the submit button by default
-    submit.disabled = true;
-  
-    newTask.addEventListener("input", function () {
-        submit.disabled = newTask.value.trim() === "";
-    });
-  
-    document.querySelector("form").addEventListener("submit", function (event) {
-        // find the task the user just submitted
-        const taskText = newTaskInput.value.trim();
-  
-        // create a list item for the new task and add the task to it
-        const newTaskItem = document.createElement("li");
-        newTaskItem.textContent = taskText;
-  
-        // add new element to our unordered list
-        document.getElementById("tasks").appendChild(newTaskItem);
-  
-        // clear the input field
-        newTaskInput.value = "";
-  
-        // prevent the default submission of the form
-        event.preventDefault();
-    });
-  
-    return false;
-  });
-        </script>
-    </body>
+    <form id="taskForm">
+        <label for="newTask">New Task:</label>
+        <input type="text" id="newTask" name="newTask" required>
+        <button type="submit" id="submitBtn" disabled>Submit</button>
+    </form>
+
+    <ul id="taskList">
+        <!-- Tasks will be added here dynamically -->
+    </ul>
+
+    <script>
+        // Get references to the form elements
+        const taskForm = document.getElementById('taskForm');
+        const newTaskInput = document.getElementById('newTask');
+        const submitBtn = document.getElementById('submitBtn');
+        const taskList = document.getElementById('taskList');
+
+        // Variables to store the values
+        let submit, newTask;
+
+        // Disable the submit button by default
+        submitBtn.disabled = true;
+
+        // Listen for input to be typed into the input field
+        newTaskInput.addEventListener('input', function () {
+            // Store the input values in variables
+            submit = submitBtn;
+            newTask = newTaskInput.value;
+
+            // Enable the submit button if the input is not empty
+            submitBtn.disabled = newTask.trim() === '';
+        });
+
+        // Listen for submission of form
+        taskForm.addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Create a new list item for the submitted task using createElement
+            const newTaskItem = document.createElement('li');
+            newTaskItem.textContent = newTask;
+
+            // Add the new task to the task list using append
+            taskList.append(newTaskItem);
+
+            // Clear the input field
+            newTaskInput.value = '';
+
+            // Disable the submit button again
+            submitBtn.disabled = true;
+        });
+
+        // Prevent the default submission of the form
+        return false;
+    </script>
+
+</body>
 </html>
