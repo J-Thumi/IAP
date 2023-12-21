@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+   
+    bottom: 0;
+    width: 100%;
+}
+#eulogy{
+   
+    border:1px double black;
+    padding:1rem;
+    font-weight: 500;
+    color:black;
+    overflow: auto;
+    display:flow-root;
+    font-size:28px;
+}
+
+.left{ 
+   float: left;
+    margin-right:1rem;
+   }
+   .quote{
+     overflow: auto;
+    display:flow-root;
+   }
