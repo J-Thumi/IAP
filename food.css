@@ -1,0 +1,21 @@
+
+img{
+    border-radius: 10px;
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+}
+#white{
+    
+    background-color:  hsl(0, 0%, 100%);
+}
+#body{
+    width: 500px;
+    height: 700px;
+    border: solid black 1px;
+   
+    margin: auto;
+    background-color: hsl(330, 100%, 98%);
+    margin-top: 10px;
+    border-radius: 30px;
+}
